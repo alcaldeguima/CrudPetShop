@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var usuarioController = require("../controller/usuarioController");
+const usuarioController = require("../controller/usuarioController");
+const multer = require("../config/multer");
 
 //listar todos os dados
 router.get("/", usuarioController.list);
@@ -11,10 +12,10 @@ router.get("/add", usuarioController.abreadd);
 //adicionar dados no banco
 router.post("/add", usuarioController.add);
 //abrir editar
-router.get("/edt", usuarioController.abreedt);
+router.get("/edt/:id", usuarioController.abreedt);
 //editar dados no banco
-router.post("/edt", usuarioController.edt);
+router.post("/edt/:id", usuarioController.edt);
 //deletar dados
-router.get("/del", usuarioController.del);
+router.get("/del/:id", usuarioController.del);
 
 module.exports = router;
