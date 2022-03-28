@@ -10,11 +10,11 @@ router.post("/", usuarioController.listfiltro);
 //abre add
 router.get("/add", usuarioController.abreadd);
 //adicionar dados no banco
-router.post("/add", usuarioController.add);
+router.post("/add", multer.single("foto"), usuarioController.add);
 //abrir editar
 router.get("/edt/:id", usuarioController.abreedt);
 //editar dados no banco
-router.post("/edt/:id", usuarioController.edt);
+router.post("/edt/:id", multer.single("foto"), usuarioController.edt);
 //deletar dados
 router.get("/del/:id", usuarioController.del);
 

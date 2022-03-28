@@ -6,7 +6,8 @@ async function abreadd(req, res) {
 }
 
 async function add(req, res) {
-  const { nome, email, senha, foto } = req.body;
+  const { nome, email, senha } = req.body;
+  const foto = req.file.filename;
   await Usuario.create({ nome, email, senha, foto }).then((usuario) => {
     res.redirect("/");
   });
@@ -23,8 +24,8 @@ async function edt(req, res) {
   usuario.email = req.body.email;
   usuario.senha = req.body.senha;
 
-  if (req.body.foto != "") {
-    usuario.foto = req.body.foto;
+  if (req.file.filename != "") {
+    usuario.foto = req.file.filename;
   }
   await usuario.save();
   res.redirect("/");
