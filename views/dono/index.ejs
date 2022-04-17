@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem dos usuários</title>
+</head>
+<body>
+    <h1>Listagem de donos</h1>
+    <p>
+        <a href="/add">Adicionar</a>
+    </p>
+    <form method="post">
+        <input type="text" name="pesquisar">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Genero</th>
+            <th>Foto</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <% Donos.forEach((dono)=>{ %>
+        <tr>
+            <td><%=dono.id%></td>
+            <td><%=dono.nome%></td>
+            <td><%=dono.email%></td>
+            <td><%=dono.genero%></td>
+            <td>
+                <img src="/fotos/<%=dono.foto%>" 
+                    width="80px" alt="foto do usuário">
+            </td>
+            <td>
+                <a href="/edt/<%=dono.id%>">Editar</a>
+            </td>
+            <td>
+                <a href="/del/<%=dono.id%>">Deletar</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

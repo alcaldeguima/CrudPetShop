@@ -6,7 +6,7 @@ async function abreadd(req, res) {
 }
 
 async function add(req, res) {
-  const { nome, email, senha } = req.body;
+  const { nome, email, genero } = req.body;
   const foto = req.file.filename;
   await Dono.create({ nome, email, genero, foto }).then((dono) => {
     res.redirect("/");

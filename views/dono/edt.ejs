@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editando Dono</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        Nome: <input value="<%=dono.nome%>" type="text" name="nome" placeholder="Digite seu nome!"><br>
+        Email: <input value="<%=dono.email%>" type="email" name="email" placeholder="Digite seu email!"><br>
+        Genero: <input value="<%=dono.genero%>" type="text" name="genero" placeholder="Digite seu genero!"><br>
+        Foto: <input type="file" name="foto"><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
