@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem dos donos</title>
+    <title>Listagem dos animais</title>
 </head>
 <body>
-    <h1>Listagem de donos</h1>
+    <h1>Listagem de animais</h1>
     <p>
-        <a href="/dono/add">Adicionar</a>
+        <a href="/animal/add">Adicionar</a>
     </p>
     <form method="post">
         <input type="text" name="pesquisar">
@@ -19,27 +19,27 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>Email</th>
-            <th>Genero</th>
+            <th>Especie</th>
+            <th>Peso</th>
             <th>Foto</th>
             <th>Editar</th>
             <th>Excluir</th>
         </tr>
-        <% Donos.forEach((dono)=>{ %>
+        <% Animais.forEach((animal)=>{ %>
         <tr>
-            <td><%=dono.id%></td>
-            <td><%=dono.nome%></td>
-            <td><%=dono.email%></td>
-            <td><%=dono.genero%></td>
+            <td><%=animal.id%></td>
+            <td><%=animal.nome%></td>
+            <td><%=animal.especie%></td>
+            <td><%=animal.peso%></td>
             <td>
-                <img src="/fotos/<%=dono.foto%>" 
+                <img src="/fotos/<%=animal.foto%>" 
                     width="80px" alt="foto do usuário">
             </td>
             <td>
-                <a href="/dono/edt/<%=dono.id%>">Editar</a>
+                <a href="/animal/edt/<%=animal.id%>">Editar</a>
             </td>
             <td>
-                <a href="/dono/del/<%=dono.id%>">Deletar</a>
+                <a href="/animal/del/<%=animal.id%>">Deletar</a>
             </td>
         </tr>
         <% }) %>

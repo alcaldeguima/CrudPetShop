@@ -9,7 +9,7 @@
 <body>
     <h1>Listagem de usuários</h1>
     <p>
-        <a href="/add">Adicionar</a>
+        <a href="/usuario/add">Adicionar</a>
     </p>
     <form method="post">
         <input type="text" name="pesquisar">
@@ -36,10 +36,10 @@
                     width="80px" alt="foto do usuário">
             </td>
             <td>
-                <a href="/edt/<%=usuario.id%>">Editar</a>
+                <a href="/usuario/edt/<%=usuario.id%>">Editar</a>
             </td>
             <td>
-                <a href="/del/<%=usuario.id%>">Deletar</a>
+                <a href="/usuario/del/<%=usuario.id%>">Deletar</a>
             </td>
         </tr>
         <% }) %>

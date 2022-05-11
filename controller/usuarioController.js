@@ -2,20 +2,20 @@ const { Op } = require("sequelize");
 const Usuario = require("../models/Usuario");
 
 async function abreadd(req, res) {
-  res.render("add.ejs", {});
+  res.render("usuario/add.ejs", {});
 }
 
 async function add(req, res) {
   const { nome, email, senha } = req.body;
   const foto = req.file.filename;
   await Usuario.create({ nome, email, senha, foto }).then((usuario) => {
-    res.redirect("/");
+    res.redirect("/usuario");
   });
 }
 
 async function abreedt(req, res) {
   let usuario = await Usuario.findByPk(req.params.id);
-  res.render("edt.ejs", { usuario: usuario });
+  res.render("usuario/edt.ejs", { usuario: usuario });
 }
 
 async function edt(req, res) {
@@ -28,12 +28,12 @@ async function edt(req, res) {
     usuario.foto = req.file.filename;
   }
   await usuario.save();
-  res.redirect("/");
+  res.redirect("/usuario");
 }
 
 async function list(req, res) {
   let usuarios = await Usuario.findAll();
-  res.render("index.ejs", { Usuarios: usuarios });
+  res.render("usuario/index.ejs", { Usuarios: usuarios });
 }
 
 async function listfiltro(req, res) {
@@ -41,13 +41,13 @@ async function listfiltro(req, res) {
   let usuarios = await Usuario.findAll({
     where: { nome: { [Op.like]: "%" + pesquisar + "%" } },
   });
-  res.render("index.ejs", { Usuarios: usuarios });
+  res.render("usuario/index.ejs", { Usuarios: usuarios });
 }
 
 async function del(req, res) {
   let usuario = await Usuario.findByPk(req.params.id);
   await usuario.destroy();
-  res.redirect("/");
+  res.redirect("/usuario");
 }
 
 module.exports = { abreadd, add, list, listfiltro, abreedt, edt, del };
